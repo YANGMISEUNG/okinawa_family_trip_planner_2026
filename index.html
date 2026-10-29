@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 오키나와 3박 4일 가족 여행 가이드</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        okinawa: {
+                            blue: '#0077b6',
+                            sky: '#00b4d8',
+                            teal: '#90e0ef',
+                            coral: '#ff70a6',
+                            sand: '#fdf0d5',
+                            accent: '#f77f00'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .tab-btn.active {
+            border-bottom: 3px solid #0077b6;
+            color: #0077b6;
+            font-weight: 700;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-16 md:pb-0">
+
+    <!-- Top Header -->
+    <header class="bg-gradient-to-r from-okinawa-blue to-okinawa-sky text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid to-amber-300 fa-plane-departure text-2xl text-amber-300"></i>
+                <div>
+                    <h1 class="text-lg font-bold leading-tight">오키나와 3박 4일 가족여행</h1>
+                    <p class="text-xs text-sky-100">2026.10.30(금) - 11.02(월) | 3세대 5인 (아이 3세)</p>
+                </div>
+            </div>
+            <span class="bg-amber-400 text-slate-900 text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                7인승 렌터카
+            </span>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm border-b sticky top-[57px] z-40">
+        <div class="max-w-5xl mx-auto flex justify-around text-slate-600">
+            <button onclick="switchTab('itinerary')" id="tab-itinerary" class="tab-btn active py-3 px-4 text-sm flex items-center gap-1.5 transition">
+                <i class="fa-solid fa-calendar-days text-base"></i> 여행계획
+            </button>
+            <button onclick="switchTab('checklist')" id="tab-checklist" class="tab-btn py-3 px-4 text-sm flex items-center gap-1.5 transition">
+                <i class="fa-solid fa-list-check text-base"></i> 체크리스트
+            </button>
+            <button onclick="switchTab('budget')" id="tab-budget" class="tab-btn py-3 px-4 text-sm flex items-center gap-1.5 transition">
+                <i class="fa-solid fa-calculator text-base"></i> 예산관리
+            </button>
+            <button onclick="switchTab('photos')" id="tab-photos" class="tab-btn py-3 px-4 text-sm flex items-center gap-1.5 transition">
+                <i class="fa-solid fa-receipt text-base"></i> 영수증/사진
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto w-full flex-grow p-4 space-y-6">
+
+        <!-- ==================== PAGE 1: ITINERARY ==================== -->
+        <section id="page-itinerary" class="space-y-6">
+            <!-- Alert Banner for VJW & FastTrack -->
+            <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 shadow-sm">
+                <div class="flex items-start gap-3">
+                    <div class="p-2 bg-okinawa-blue text-white rounded-lg mt-0.5">
+                        <i class="fa-solid fa-passport text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-sm">Visit Japan Web & 인천공항 패스트트랙 사전준비</h3>
+                        <p class="text-xs text-slate-600 mt-0.5">
+                            3세 미유아 동반으로 <span class="text-amber-600 font-semibold">인천공항 패스트트랙(교통약자 우대출구)</span> 이용 대상입니다. (전용 출구 이용 가능)
+                        </p>
+                    </div>
+                </div>
+                <a href="https://vjw-lp.digital.go.jp/ko/" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto text-center bg-okinawa-blue hover:bg-sky-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shrink-0 flex items-center justify-center gap-1">
+                    <i class="fa-solid fa-qrcode"></i> Visit Japan Web QR 발급
+                </a>
+            </div>
+
+            <!-- Date Selector Tabs -->
+            <div class="flex space-x-2 border-b border-slate-200 pb-2 overflow-x-auto hide-scrollbar">
+                <button onclick="showDay('day1')" id="day1-btn" class="day-tab-btn bg-okinawa-blue text-white px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap shadow-sm">
+                    Day 1 (10.30 금) 북부 이동
+                </button>
+                <button onclick="showDay('day2')" id="day2-btn" class="day-tab-btn bg-white text-slate-600 hover:bg-slate-100 px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap shadow-sm">
+                    Day 2 (10.31 토) 츄라우미&코우리
+                </button>
+                <button onclick="showDay('day3')" id="day3-btn" class="day-tab-btn bg-white text-slate-600 hover:bg-slate-100 px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap shadow-sm">
+                    Day 3 (11.01 일) 중부&아메리칸빌리지
+                </button>
+                <button onclick="showDay('day4')" id="day4-btn" class="day-tab-btn bg-white text-slate-600 hover:bg-slate-100 px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap shadow-sm">
+                    Day 4 (11.02 월) 공항 귀국
+                </button>
+            </div>
+
+            <!-- DAY 1 CONTENT -->
+            <div id="day1-content" class="day-content space-y-4">
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-lg text-xs text-amber-900">
+                    <p class="font-bold"><i class="fa-solid fa-hotel"></i> 1일차 숙소: 마하이나 웰니스 리조트 오키나와 (북부/조식포함)</p>
+                    <p class="mt-0.5">인천공항 출발(11:25 이스타항공) ➔ 나하공항 도착(14:00) ➔ 렌터카 수령 후 북부 이동</p>
+                </div>
+
+                <!-- Timeline Items -->
+                <div class="relative border-l-2 border-sky-200 ml-3 pl-5 space-y-6">
+
+                    <!-- Event 1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">1</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">08:00 - 11:25</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">집 출발 & 인천공항 (ICN) 수속</h4>
+                            <ul class="text-xs text-slate-600 mt-2 space-y-1">
+                                <li>• <strong>08:00</strong> 집 출발 (7인승 렌터카 사전 체크)</li>
+                                <li>• <strong>09:00</strong> 인천공항 T1 도착 후 체크인 및 수하물 위탁</li>
+                                <li>• <span class="text-rose-600 font-bold"><i class="fa-solid fa-person-breastfeeding"></i> 패스트트랙 이용:</span> 3세 유아 동반으로 교통약자 우대출구 사용 (패스트트랙 패스 수령)</li>
+                                <li>• <strong>10:00 - 11:00</strong> 인천공항 라운지 이용 (마티나/아시아나 라운지 - 식사 및 휴식)</li>
+                                <li>• <strong>11:25</strong> 이스타항공 탑승 (나하 행)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">2</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">14:00 - 16:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">나하 공항 도착 & 렌터카 픽업</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                입국심사(Visit Japan Web QR 제시) ➔ 수하물 수령 ➔ 렌터카 셔틀버스로 이동 ➔ 7인승 미니밴(유아 카시트 설치 확인) 픽업.
+                            </p>
+                            <!-- Facility Map Shortcuts -->
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/Naha+Airport+Restroom" target="_blank" class="bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded text-slate-700 font-medium border">
+                                    <i class="fa-solid fa-restroom text-sky-600"></i> 나하공항 화장실
+                                </a>
+                                <a href="https://www.google.com/maps/search/Lawson+Naha+Airport" target="_blank" class="bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded text-blue-700 font-medium border border-blue-200">
+                                    <i class="fa-store fa-solid text-blue-600"></i> 공항 로손/패밀리마트
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">3</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">16:00 - 18:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">북부 이동 (휴게소 방문 & 간식)</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                고속도로 이용 북부 이동 (약 1시간 30분 소요). 중간 휴게소에서 아이 휴식 및 간식 섭취.
+                            </p>
+                            <div class="mt-2 bg-slate-50 p-2.5 rounded border text-xs">
+                                <span class="font-semibold text-slate-700"><i class="fa-solid fa-cookie-bite text-amber-500"></i> 추천 간식 휴게소 (Google 4.0+):</span>
+                                <ul class="list-disc pl-4 mt-1 space-y-0.5 text-slate-600">
+                                    <li><a href="https://www.google.com/maps/search/Kyoda+Rest+Area" target="_blank" class="text-okinawa-blue hover:underline">쿄다 휴게소 (Kyoda Rest Area)</a> - 블루씰 아이스크림, 어묵, 사타안다기 (휴무없음, 브레이크타임 없음)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">4</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">18:30 - 20:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">저녁 식사: 야키니쿠 (모토부 목장)</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                최상급 오키나와 모토부 와규 야키니쿠. 유아용 의자 및 개별실 제공 가능하여 가족 단위 식사 최고.
+                            </p>
+                            <!-- Restaurant Recommendations -->
+                            <div class="mt-2 bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2 text-xs">
+                                <div class="font-bold text-amber-900"><i class="fa-solid fa-utensils"></i> 저녁 식사 후보 (Google 4.0 이상 / 브레이크타임 없음 또는 저녁연속영업):</div>
+                                <div>
+                                    <a href="https://www.google.com/maps/search/Motobu+Ranch+Yakiniku+Motobu" target="_blank" class="font-semibold text-okinawa-blue hover:underline">1. 모토부 목장 야키니쿠 (Motobu Ranch)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.3</span>
+                                    <p class="text-slate-600">부드러운 와규, 유아/어르신 완벽 대응. 사전 예약 권장.</p>
+                                </div>
+                                <div class="border-t border-amber-200 pt-1.5">
+                                    <a href="https://www.google.com/maps/search/Yakiniku+Gyu-Kaku+Nago" target="_blank" class="font-semibold text-okinawa-blue hover:underline">2. 규카쿠 나고점 (Gyu-Kaku Nago)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.1</span>
+                                    <p class="text-slate-600">다양한 야키니쿠 세트, 브레이크타임 없는 연속 영업 저녁 식사 가능.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 5 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">5</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">20:30 -</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">체크인: 마하이나 웰니스 리조트 오키나와</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                체크인 후 대목욕탕(온천) 이용, 마트/편의점 들러 아이 간식 및 우유 구매.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/Hotel+Mahaina+Wellness+Resort+Okinawa" target="_blank" class="bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded text-amber-800 font-medium border border-amber-300">
+                                    <i class="fa-solid fa-location-dot"></i> 마하이나 웰니스 지도
+                                </a>
+                                <a href="https://www.google.com/maps/search/Lawson+near+Hotel+Mahaina" target="_blank" class="bg-blue-50 hover:bg-blue-100 px-2.5 py-1 rounded text-blue-700 font-medium border border-blue-200">
+                                    <i class="fa-store fa-solid"></i> 인근 로손 편의점
+                                </a>
+                                <a href="https://www.google.com/maps/search/Pharmacy+near+Hotel+Mahaina" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded text-emerald-700 font-medium border border-emerald-200">
+                                    <i class="fa-solid fa-capsules"></i> 인근 약국 (Drugstore)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DAY 2 CONTENT -->
+            <div id="day2-content" class="day-content hidden space-y-4">
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-lg text-xs text-amber-900">
+                    <p class="font-bold"><i class="fa-solid fa-hotel"></i> 2일차 숙소: 마하이나 웰니스 리조트 오키나와 (2박째/조식포함)</p>
+                    <p class="mt-0.5">츄라우미 수족관 ➔ 코우리 대교 & 코우리 해변 ➔ 나고 파인애플 파크</p>
+                </div>
+
+                <div class="relative border-l-2 border-sky-200 ml-3 pl-5 space-y-6">
+
+                    <!-- Event 1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">1</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">08:00 - 09:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">호텔 조식 뷔페</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                마하이나 웰니스 리조트 조식 (어린이 메뉴 및 일본식/양식 뷔페 제공). 여유로운 아침 식사.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">2</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">10:00 - 12:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">오키나와 추라우미 수족관 (펀패스 사용)</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                고래상어, 가오리 대형 수조 감상 및 오키짱 돌고래쇼 (무료 공연) 관람. 유모차 이동 편리함.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/Okinawa+Churaumi+Aquarium" target="_blank" class="bg-sky-100 hover:bg-sky-200 px-2.5 py-1 rounded text-sky-800 font-medium border border-sky-300">
+                                    <i class="fa-solid fa-water"></i> 츄라우미 수족관
+                                </a>
+                                <a href="https://www.google.com/maps/search/Churaumi+Restroom" target="_blank" class="bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded text-slate-700 font-medium border">
+                                    <i class="fa-solid fa-restroom"></i> 수족관 수유실/화장실
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">3</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">12:30 - 14:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">점심 식사 (모토부/해안가)</h4>
+                            <div class="mt-2 bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2 text-xs">
+                                <div class="font-bold text-amber-900"><i class="fa-solid fa-utensils"></i> 점심 추천 (Google 4.0+ / 브레이크 타임 없음):</div>
+                                <div>
+                                    <a href="https://www.google.com/maps/search/Kajinhou+Motobu" target="_blank" class="font-semibold text-okinawa-blue hover:underline">1. 카진호 (Kajinhou / 花人逢)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.3</span>
+                                    <p class="text-slate-600">오션뷰 피자 & 샐러드맛집. 브레이크 타임 없음, 아이가 피자 잘먹음.</p>
+                                </div>
+                                <div class="border-t border-amber-200 pt-1.5">
+                                    <a href="https://www.google.com/maps/search/Captain+Kangaroo+Burger+Motobu" target="_blank" class="font-semibold text-okinawa-blue hover:underline">2. 캡틴 캥거루 버거 (Captain Kangaroo)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.4</span>
+                                    <p class="text-slate-600">오키나와 최고 수제버거. 연중무휴 연속 영업.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">4</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">14:30 - 16:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">코우리 대교 & 코우리 해변 드라이브</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                에메랄드빛 바다 다리 드라이브, 해변 모래놀이 및 사진 촬영.
+                            </p>
+                            <!-- Cafe Recommendations -->
+                            <div class="mt-2 bg-slate-50 p-2.5 rounded border text-xs space-y-1">
+                                <span class="font-semibold text-slate-700"><i class="fa-solid fa-mug-hot text-amber-600"></i> 코우리섬 오션뷰 카페 추천 (Google 4.0+):</span>
+                                <p><a href="https://www.google.com/maps/search/LLota+Kouri" target="_blank" class="text-okinawa-blue hover:underline font-medium">L-Lota Cafe (엘로타) ★4.2</a> - 탁 트인 코우리 대교 뷰 카페</p>
+                                <p><a href="https://www.google.com/maps/search/Kouri+Ocean+Tower+Cafe" target="_blank" class="text-okinawa-blue hover:underline font-medium">코우리 오션타워 카페 ★4.1</a> - 전동카트로 타워 올라가기 (아이 좋아함)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 5 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">5</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">16:45 - 18:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">나고 파인애플 파크 (펀패스 사용)</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                귀여운 파인애플 카트를 타고 열대 정원 탐험 (3세 아이 매우 좋아함). 파인애플 시식 및 파이 쇼핑.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 6 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">6</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">18:30 - 20:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">저녁 식사 (북부 소바/일식)</h4>
+                            <div class="mt-2 bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2 text-xs">
+                                <div class="font-bold text-amber-900"><i class="fa-solid fa-utensils"></i> 저녁 식사 추천 (Google 4.0+):</div>
+                                <div>
+                                    <a href="https://www.google.com/maps/search/Centennial+House+Ufutya" target="_blank" class="font-semibold text-okinawa-blue hover:underline">1. 백년아구 우후야 (Ufutya)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.2</span>
+                                    <p class="text-slate-600">고택 운치 있는 흑돼지 샤브샤브 & 오키나와 소바. 부모님 만족도 최상.</p>
+                                </div>
+                                <div class="border-t border-amber-200 pt-1.5">
+                                    <a href="https://www.google.com/maps/search/Kishimoto+Shokudo+Nago" target="_blank" class="font-semibold text-okinawa-blue hover:underline">2. 키시모토 식당 (Kishimoto)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.1</span>
+                                    <p class="text-slate-600">전통 깊은 오키나와 소바 맛집.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DAY 3 CONTENT -->
+            <div id="day3-content" class="day-content hidden space-y-4">
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-lg text-xs text-amber-900">
+                    <p class="font-bold"><i class="fa-solid fa-hotel"></i> 3일차 숙소: 베셀 호텔 카라카데 아메리칸 빌리지 (중부/조식포함)</p>
+                    <p class="mt-0.5">부세나 해중 공원 ➔ 이온몰 라이카무 ➔ 아메리칸 빌리지 & 야키니쿠 저녁</p>
+                </div>
+
+                <div class="relative border-l-2 border-sky-200 ml-3 pl-5 space-y-6">
+
+                    <!-- Event 1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">1</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">08:00 - 09:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">체크아웃 & 호텔 조식</h4>
+                            <p class="text-xs text-slate-600 mt-1">마하이나 체크아웃 후 중부 방향 이동 준비.</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">2</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">10:00 - 12:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">부세나 해중 공원 (해중전망탑 & 글라스보트)</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                바닷속을 수중에서 관찰할 수 있는 해중전망탑과 글라스 밑바닥 배 체험. 60대 부모님과 3세 아이 모두 안전하게 해양 생물 관람.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/Busena+Marine+Park" target="_blank" class="bg-teal-100 hover:bg-teal-200 px-2.5 py-1 rounded text-teal-800 font-medium border border-teal-300">
+                                    <i class="fa-solid fa-ship"></i> 부세나 해중공원
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">3</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">12:30 - 15:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">점심 식사 & 이온몰 오키나와 라이카무 쇼핑</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                오키나와 최대 쇼핑몰. 대형 수족관 로비, 육아 편의시설 완비 (수유실, 유모차 무료대여).
+                            </p>
+                            <div class="mt-2 bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2 text-xs">
+                                <div class="font-bold text-amber-900"><i class="fa-solid fa-utensils"></i> 이온몰 점심 추천 (연속 영업):</div>
+                                <div>
+                                    <a href="https://www.google.com/maps/search/Kua+Aina+Aeon+Mall+Rycom" target="_blank" class="font-semibold text-okinawa-blue hover:underline">1. 쿠아아이나 수제버거 (Kua Aina Rycom)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.2</span>
+                                </div>
+                                <div class="border-t border-amber-200 pt-1.5">
+                                    <a href="https://www.google.com/maps/search/Gourmet+Kaiten+Sushi+Rycom" target="_blank" class="font-semibold text-okinawa-blue hover:underline">2. 회전초밥 / 스시 전문점 (이オン몰 내)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.0</span>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/AEON+MALL+Okinawa+Rycom" target="_blank" class="bg-purple-100 hover:bg-purple-200 px-2.5 py-1 rounded text-purple-800 font-medium border border-purple-300">
+                                    <i class="fa-solid fa-bag-shopping"></i> 이온몰 라이카무
+                                </a>
+                                <a href="https://www.google.com/maps/search/Pharmacy+Aeon+Mall+Rycom" target="_blank" class="bg-emerald-50 hover:bg-emerald-100 px-2.5 py-1 rounded text-emerald-700 font-medium border border-emerald-200">
+                                    <i class="fa-solid fa-capsules"></i> 몰 내 대형 약국
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">4</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">16:00 - 18:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">베셀 호텔 체크인 & 아메리칸 빌리지 산책</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                베셀 호텔 카라카데 체크인 ➔ 아메리칸 빌리지 선셋 비치 거리 산책 및 일몰 감상.
+                            </p>
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/Vessel+Hotel+Campana+Okinawa" target="_blank" class="bg-amber-100 hover:bg-amber-200 px-2.5 py-1 rounded text-amber-800 font-medium border border-amber-300">
+                                    <i class="fa-solid fa-hotel"></i> 베셀 호텔 위치
+                                </a>
+                                <a href="https://www.google.com/maps/search/American+Village+Okinawa" target="_blank" class="bg-sky-100 hover:bg-sky-200 px-2.5 py-1 rounded text-sky-800 font-medium border border-sky-300">
+                                    <i class="fa-solid fa-city"></i> 아메리칸 빌리지
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 5 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">5</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">18:00 - 20:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">저녁 식사: 류큐노우식 야키니쿠</h4>
+                            <div class="mt-2 bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2 text-xs">
+                                <div class="font-bold text-amber-900"><i class="fa-solid fa-utensils"></i> 저녁 식사 추천 (Google 4.0+ / 아메리칸 빌리지 내):</div>
+                                <div>
+                                    <a href="https://www.google.com/maps/search/Ryukyu+No+Ushi+Chatan" target="_blank" class="font-semibold text-okinawa-blue hover:underline">1. 류큐노우식 차탄점 (Ryukyu no Ushi)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.5</span>
+                                    <p class="text-slate-600">입에서 녹는 최고급 와규. 인기 매장이므로 사전 예약 필수.</p>
+                                </div>
+                                <div class="border-t border-amber-200 pt-1.5">
+                                    <a href="https://www.google.com/maps/search/Yakiniku+Koubaigyu+Chatan" target="_blank" class="font-semibold text-okinawa-blue hover:underline">2. 야키니쿠 와규 전문점 (대안)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- DAY 4 CONTENT -->
+            <div id="day4-content" class="day-content hidden space-y-4">
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-lg text-xs text-amber-900">
+                    <p class="font-bold"><i class="fa-solid fa-plane-arrival"></i> 4일차: 쇼핑 ➔ 렌터카 반납 ➔ 귀국 (18:45 아시아나 항공)</p>
+                    <p class="mt-0.5">베셀 조식 ➔ 돈키호테 쇼핑 ➔ 나하 공항 라운지 ➔ 인천공항 도착</p>
+                </div>
+
+                <div class="relative border-l-2 border-sky-200 ml-3 pl-5 space-y-6">
+
+                    <!-- Event 1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">1</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">08:00 - 09:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">베셀 호텔 조식 뷔페</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                오키나와 현지 식재료 중심의 훌륭한 조식 뷔페 즐기기.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">2</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">10:00 - 12:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">돈키호테 쇼핑 (돈키호테 기노완점 / 국제거리) 및 면세 혜택</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                면세 쇼핑, 일본 의약품, 기념품, 아이 과자 등 구매. 주차하기 편리한 대형 돈키호테 매장 이용 추천.
+                            </p>
+                            <!-- Tax Free Guide Box -->
+                            <div class="mt-2.5 bg-amber-50/80 p-3 rounded-lg border border-amber-200 text-xs">
+                                <span class="font-bold text-amber-900 flex items-center gap-1 mb-1">
+                                    <i class="fa-solid fa-receipt text-amber-600"></i> 현지 매장 즉시 면세(Tax-Free) 받는 방법
+                                </span>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-700">
+                                    <li><strong>구입 금액 조건:</strong> 세포함 5,500엔 이상 구매 시 10% 면세 혜택 즉시 적용.</li>
+                                    <li><strong>지급 지출 서류:</strong> 계산 시 <span class="text-rose-600 font-bold">여권 원본</span> 제시 필수 (전자여권/VJW QR 세관정보 활용 가능).</li>
+                                    <li><strong>소모품 봉투 포장:</strong> 소모품(과자, 약품, 화장품)은 밀봉 포장되며, 일본 출국 전까지 개봉 금지.</li>
+                                </ul>
+                            </div>
+                            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                                <a href="https://www.google.com/maps/search/Don+Quijote+Ginowan" target="_blank" class="bg-yellow-100 hover:bg-yellow-200 px-2.5 py-1 rounded text-yellow-900 font-medium border border-yellow-300">
+                                    <i class="fa-solid fa-store"></i> 돈키호테 기노완점 (주차용이)
+                                </a>
+                                <a href="https://www.google.com/maps/search/Don+Quijote+Kokusai+Dori" target="_blank" class="bg-yellow-100 hover:bg-yellow-200 px-2.5 py-1 rounded text-yellow-900 font-medium border border-yellow-300">
+                                    <i class="fa-solid fa-store"></i> 돈키호테 국제거리점
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">3</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">12:30 - 14:00</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">점심 식사 (나하 인근)</h4>
+                            <div class="mt-2 bg-amber-50 p-3 rounded-lg border border-amber-200 space-y-2 text-xs">
+                                <div class="font-bold text-amber-900"><i class="fa-solid fa-utensils"></i> 점심 추천 (Google 4.0+ / 연속 영업):</div>
+                                <div>
+                                    <a href="https://www.google.com/maps/search/Yunangi+Naha" target="_blank" class="font-semibold text-okinawa-blue hover:underline">1. 유난기 (Yunangi / 정통 오키나와 요리)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.3</span>
+                                </div>
+                                <div class="border-t border-amber-200 pt-1.5">
+                                    <a href="https://www.google.com/maps/search/Ramen+Danbo+Naha" target="_blank" class="font-semibold text-okinawa-blue hover:underline">2. 단보 라멘 나하점 (Ramen Danbo)</a>
+                                    <span class="text-amber-600 ml-1">★ 4.1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">4</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">15:30 - 16:30</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">렌터카 주유 및 반납 ➔ 나하 공항 이동</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                반납 전 렌터카 지정 주유소에서 만탕 주유 mandatory. 렌터카 셔틀버스로 나하 공항 이동.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 5 -->
+                    <div class="relative">
+                        <span class="absolute -left-[27px] top-1 bg-sky-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">5</span>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <span class="text-xs font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded">16:30 - 18:45</span>
+                            <h4 class="font-bold text-slate-800 text-base mt-1">나하 공항 세관 면세 확인 & 출국 수속 & 공항 라운지 이용</h4>
+                            <p class="text-xs text-slate-600 mt-1">
+                                아시아나 항공 수속 ➔ 나하 공항 라운지(Lounge Hana / 카드사 혜택 확인) 이용하며 음료 및 휴식 ➔ <strong>18:45 아시아나 항공 탑승</strong>.
+                            </p>
+                            <!-- Naha Airport Tax Refund Process Step-by-Step -->
+                            <div class="mt-3 bg-sky-50 p-3 rounded-lg border border-sky-200 text-xs space-y-1.5">
+                                <span class="font-bold text-sky-900 flex items-center gap-1">
+                                    <i class="fa-solid fa-passport text-okinawa-blue"></i> 나하 공항 세관 전자 면세 확인 절차 (Tax Exemption Verification)
+                                </span>
+                                <p class="text-slate-600">일본은 2020년부터 <span class="font-semibold text-slate-800">전자인증 시스템</span>으로 전환되어 공항 환급 창구에서 현금을 따로 돌려받는 방식이 아닌, 시중 매장에서 10% 면세가 적용된 금액으로 결제한 후 공항 세관에서 최종 확인만 거칩니다.</p>
+                                <div class="bg-white p-2.5 rounded border border-sky-100 text-[11px] text-slate-700 space-y-1 mt-1">
+                                    <p><strong>1. 항공사 탑승권 발급 및 위탁수하물 부치기:</strong> 구입품을 기내 탑승 수하물이나 위탁 수하물로 넣습니다.</p>
+                                    <p><strong>2. 보안검색대 지적 후 세관(Customs) 판독기 스캔:</strong> 출국장 세관 카운터에 설치된 <span class="text-okinawa-blue font-bold">여권 리더기</span>에 여권을 스캔하면 구매 내역 전자데이터가 수신 확인됩니다.</p>
+                                    <p><strong>3. 물품 점검:</strong> 세관원이 요청할 경우 면세 구매 물품(소모품 등)을 보여줍니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Custom Restroom Management Tool -->
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mt-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-restroom text-okinawa-blue"></i> 사용자 지정 화장실 정보 추가/관리
+                    </h3>
+                    <span class="text-xs text-slate-500">오프라인 저장됨</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-3">
+                    <input type="text" id="wc-name" placeholder="장소명 (예: 코우리대교 입구 화장실)" class="text-xs p-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-okinawa-blue">
+                    <input type="text" id="wc-location" placeholder="위치/특징 (예: 기저귀 교환대 있음)" class="text-xs p-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-okinawa-blue">
+                    <button onclick="addRestroom()" class="bg-okinawa-blue hover:bg-sky-700 text-white text-xs font-bold px-3 py-2 rounded-lg transition">
+                        + 화장실 추가
+                    </button>
+                </div>
+                <div id="restroom-list" class="space-y-2 text-xs">
+                    <!-- Dynamic Items added via JS -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== PAGE 2: CHECKLIST ==================== -->
+        <section id="page-checklist" class="hidden space-y-6">
+
+            <!-- Airport Preparation Box -->
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-base flex items-center gap-2 border-b pb-2">
+                    <i class="fa-solid fa-plane-circle-check text-okinawa-blue"></i> 인천/나하 공항 & 출국 준비사항
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-sky-50 p-3 rounded-lg border border-sky-100">
+                        <h4 class="font-bold text-sky-900 mb-1"><i class="fa-solid fa-bolt text-amber-500"></i> 인천공항 패스트트랙</h4>
+                        <p class="text-slate-600">3세 미유아 동반 ➔ <span class="font-semibold text-slate-800">교통약자 우대카드</span> 발급 받아 전용 출입문 이용 (가족 전원 동반 입장은 최대 3인 기준 확인 필요)</p>
+                    </div>
+
+                    <div class="bg-sky-50 p-3 rounded-lg border border-sky-100">
+                        <h4 class="font-bold text-sky-900 mb-1"><i class="fa-solid fa-qrcode text-emerald-600"></i> Visit Japan Web 세관/입국 QR</h4>
+                        <p class="text-slate-600">공식 웹사이트(<a href="https://vjw-lp.digital.go.jp/ko/" target="_blank" class="text-okinawa-blue underline">vjw-lp.digital.go.jp</a>) 접속 후 가족 대표자가 동반 가족 등록 후 QR캡처.</p>
+                    </div>
+
+                    <div class="bg-sky-50 p-3 rounded-lg border border-sky-100">
+                        <h4 class="font-bold text-sky-900 mb-1"><i class="fa-solid fa-sim-card text-purple-600"></i> 공항 유심센터</h4>
+                        <p class="text-slate-600">4일 이용권 x 4매 = <strong>63,600원</strong> (인천공항 수령 사전 예약 확인)</p>
+                    </div>
+
+                    <div class="bg-sky-50 p-3 rounded-lg border border-sky-100">
+                        <h4 class="font-bold text-sky-900 mb-1"><i class="fa-solid fa-couch text-amber-600"></i> 공항 라운지 이용</h4>
+                        <p class="text-slate-600">• 인천공항: 마티나/아시아나 라운지<br>• 나하공항: Lounge Hana (1층 탑승전)</p>
+                    </div>
+
+                    <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 md:col-span-2">
+                        <h4 class="font-bold text-amber-900 mb-1"><i class="fa-solid fa-percent text-amber-600"></i> 나하공항 면세 혜택 안내 (전자 세관 승인)</h4>
+                        <p class="text-slate-600">
+                            돈키호테/이온몰/시중 가맹점에서 5,500엔 이상 구입 시 <span class="font-bold text-slate-800">현장에서 여권 원본을 제시하여 10% 할인을 즉시 결제</span> 받습니다.<br>
+                            나하 공항에서는 출국 심사 전 <span class="font-bold text-slate-800">세관(Customs) 전용 단말기에 여권을 스캔</span>하여 구매 데이터를 승인 처리하는 방식으로 간소화되었습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Checklist Grid -->
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex justify-between items-center border-b pb-2">
+                    <h3 class="font-bold text-slate-800 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-square-check text-okinawa-blue"></i> 여행 준비물 체크리스트
+                    </h3>
+                    <span id="check-progress" class="text-xs font-bold bg-sky-100 text-okinawa-blue px-2.5 py-1 rounded-full">0% 완료</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs" id="checklist-container">
+                    <!-- Items populated via JavaScript -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== PAGE 3: BUDGET ==================== -->
+        <section id="page-budget" class="hidden space-y-6">
+
+            <!-- Budget Overview Card -->
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-5 rounded-xl shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="text-xs text-slate-400">오키나와 여행 총 예상 비용</span>
+                    <h2 class="text-2xl font-bold text-amber-400 mt-0.5" id="total-budget-display">₩ 0</h2>
+                    <p class="text-xs text-slate-300 mt-1">사전 예약 비용 + 현지 사용 예상 합계</p>
+                </div>
+                <div class="flex gap-3 text-xs">
+                    <div class="bg-slate-700/60 p-3 rounded-lg border border-slate-600">
+                        <span class="text-slate-400 block">사전 지출 (KRW)</span>
+                        <span class="font-bold text-white text-sm" id="prepaid-display">₩ 0</span>
+                    </div>
+                    <div class="bg-slate-700/60 p-3 rounded-lg border border-slate-600">
+                        <span class="text-slate-400 block">현지 지출 (JPY)</span>
+                        <span class="font-bold text-sky-300 text-sm" id="local-jpy-display">¥ 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-booked Expenses Table -->
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                <h3 class="font-bold text-slate-800 text-sm flex items-center gap-2 border-b pb-2">
+                    <i class="fa-solid fa-credit-card text-okinawa-blue"></i> 사전 예약 및 결제 내역 (KRW)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-600 border-b">
+                                <th class="p-2">항목</th>
+                                <th class="p-2">내역 / 수량</th>
+                                <th class="p-2 text-right">금액 (KRW)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y text-slate-700">
+                            <tr>
+                                <td class="p-2 font-medium">공항 유심센터</td>
+                                <td class="p-2">4일권 x 4개 (15,900원 x 4)</td>
+                                <td class="p-2 text-right font-semibold">₩ 63,600</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-medium">오키나와 펀패스</td>
+                                <td class="p-2">츄라우미 시리즈 (성인4+유아1)</td>
+                                <td class="p-2 text-right font-semibold">₩ 210,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-medium">항공권 (5인)</td>
+                                <td class="p-2">이스타항공 (출국) / 아시아나 (귀국)</td>
+                                <td class="p-2 text-right font-semibold">₩ 1,850,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-medium">숙소 (3박)</td>
+                                <td class="p-2">마하이나 웰니스 2박 + 베셀 1박 (조식포함)</td>
+                                <td class="p-2 text-right font-semibold">₩ 950,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-medium">7인승 렌터카</td>
+                                <td class="p-2">미니밴 4일 + 카시트 포함 + NOC보험</td>
+                                <td class="p-2 text-right font-semibold">₩ 380,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Expense Entry Form -->
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                <h3 class="font-bold text-slate-800 text-sm flex items-center gap-2 border-b pb-2">
+                    <i class="fa-solid fa-plus-circle text-okinawa-blue"></i> 현지 지출 추가 (엔화 JPY)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    <input type="text" id="exp-name" placeholder="내역 (예: 모토부 목장 야키니쿠)" class="text-xs p-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-okinawa-blue">
+                    <select id="exp-category" class="text-xs p-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-okinawa-blue">
+                        <option value="식비">식비/카페</option>
+                        <option value="쇼핑">쇼핑/돈키호테</option>
+                        <option value="교통">주유/통행료</option>
+                        <option value="기타">기타</option>
+                    </select>
+                    <input type="number" id="exp-amount" placeholder="금액 (엔화 ¥)" class="text-xs p-2 border rounded-lg focus:outline-none focus:ring-1 focus:ring-okinawa-blue">
+                    <button onclick="addExpense()" class="bg-okinawa-blue hover:bg-sky-700 text-white text-xs font-bold p-2 rounded-lg transition">
+                        추가하기
+                    </button>
+                </div>
+
+                <!-- Expense List Table -->
+                <div class="overflow-x-auto mt-4">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-600 border-b">
+                                <th class="p-2">항목</th>
+                                <th class="p-2">분류</th>
+                                <th class="p-2 text-right">금액 (JPY)</th>
+                                <th class="p-2 text-center">삭제</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-table-body" class="divide-y text-slate-700">
+                            <!-- JS Items -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ==================== PAGE 4: RECEIPTS & PHOTOS ==================== -->
+        <section id="page-photos" class="hidden space-y-6">
+
+            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex justify-between items-center border-b pb-2">
+                    <h3 class="font-bold text-slate-800 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-camera text-okinawa-blue"></i> 영수증 및 추억 사진 저장소
+                    </h3>
+                    <span class="text-xs text-slate-500">브라우저 내 안전 저장</span>
+                </div>
+
+                <!-- Upload Controls -->
+                <div class="border-2 border-dashed border-sky-200 rounded-xl p-6 text-center bg-sky-50/50 hover:bg-sky-50 transition">
+                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-okinawa-blue mb-2"></i>
+                    <p class="text-xs font-medium text-slate-700">영수증 사진이나 여행 사진을 업로드하세요</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">JPG, PNG 파일 지원</p>
+                    <input type="file" id="photo-input" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                    <button onclick="document.getElementById('photo-input').click()" class="mt-3 bg-okinawa-blue hover:bg-sky-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition">
+                        사진 선택하기
+                    </button>
+                </div>
+
+                <!-- Photos Grid -->
+                <div id="photo-gallery" class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
+                    <!-- Dynamic Images loaded via JS -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 text-center py-4 text-xs text-slate-500 mt-auto">
+        <p>© 2026 Okinawa Family Travel Guide. All rights reserved.</p>
+        <p class="mt-1 text-[11px] text-slate-400">Single File Deployment Ready for GitHub & Vercel (okinawa2026.html)</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // State Management
+        const state = {
+            prepaidKRW: 3073600, // 63600 + 210000 + 1850000 + 950000 + 380000
+            jpyRate: 9.1, // 100 JPY = 910 KRW approx
+            expenses: JSON.parse(localStorage.getItem('okinawa_expenses')) || [
+                { id: 1, name: '쿄다 휴게소 간식', category: '식비', amount: 1500 },
+                { id: 2, name: '모토부 목장 저녁', category: '식비', amount: 18000 }
+            ],
+            checklist: JSON.parse(localStorage.getItem('okinawa_checklist')) || [
+                { id: 'c1', title: '여권 (유효기간 6개월 이상)', checked: true, cat: '필수서류' },
+                { id: 'c2', title: 'Visit Japan Web QR 코드 캡처', checked: true, cat: '필수서류' },
+                { id: 'c3', title: '국제운전면허증 + 한국면허증', checked: true, cat: '필수서류' },
+                { id: 'c4', title: '인천공항 패스트트랙 우대카드', checked: false, cat: '공항준비' },
+                { id: 'c5', title: '공항유심 4매 수령', checked: false, cat: '공항준비' },
+                { id: 'c6', title: '오키나와 펀패스 바우처', checked: true, cat: '티켓' },
+                { id: 'c7', title: '3세 아이 상비약 (해열제/체온계)', checked: true, cat: '아이용품' },
+                { id: 'c8', title: '유모차 / 아기 띠', checked: true, cat: '아이용품' },
+                { id: 'c9', title: '110V 돼지코 어댑터', checked: false, cat: '전자기기' }
+            ],
+            restrooms: JSON.parse(localStorage.getItem('okinawa_restrooms')) || [
+                { id: 1, name: '쿄다 휴게소 공공화장실', loc: '휴게소 건물 내 (기저귀 교환대)' },
+                { id: 2, name: '코우리 해변 공용화장실', loc: '주차장 옆 샤워장 부근' }
+            ],
+            photos: JSON.parse(localStorage.getItem('okinawa_photos')) || []
+        };
+
+        // Navigation Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`page-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        // Itinerary Day Selector
+        function showDay(dayId) {
+            document.querySelectorAll('.day-content').forEach(d => d.classList.add('hidden'));
+            document.querySelectorAll('.day-tab-btn').forEach(b => {
+                b.classList.remove('bg-okinawa-blue', 'text-white');
+                b.classList.add('bg-white', 'text-slate-600');
+            });
+
+            document.getElementById(`${dayId}-content`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`${dayId}-btn`);
+            activeBtn.classList.remove('bg-white', 'text-slate-600');
+            activeBtn.classList.add('bg-okinawa-blue', 'text-white');
+        }
+
+        // Restroom Management Functions
+        function renderRestrooms() {
+            const listEl = document.getElementById('restroom-list');
+            if (state.restrooms.length === 0) {
+                listEl.innerHTML = '<p class="text-slate-400 italic">등록된 화장실 정보가 없습니다.</p>';
+                return;
+            }
+            listEl.innerHTML = state.restrooms.map(item => `
+                <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded border">
+                    <div>
+                        <span class="font-bold text-slate-800"><i class="fa-solid fa-restroom text-sky-600"></i> ${item.name}</span>
+                        <span class="text-slate-500 ml-2">(${item.loc})</span>
+                    </div>
+                    <button onclick="deleteRestroom(${item.id})" class="text-rose-500 hover:text-rose-700 px-2">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function addRestroom() {
+            const name = document.getElementById('wc-name').value.trim();
+            const loc = document.getElementById('wc-location').value.trim();
+            if (!name) return alert('장소명을 입력해주세요.');
+
+            state.restrooms.push({ id: Date.now(), name, loc: loc || '위치 정보 없음' });
+            localStorage.setItem('okinawa_restrooms', JSON.stringify(state.restrooms));
+            document.getElementById('wc-name').value = '';
+            document.getElementById('wc-location').value = '';
+            renderRestrooms();
+        }
+
+        function deleteRestroom(id) {
+            state.restrooms = state.restrooms.filter(r => r.id !== id);
+            localStorage.setItem('okinawa_restrooms', JSON.stringify(state.restrooms));
+            renderRestrooms();
+        }
+
+        // Checklist Functions
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = state.checklist.map(item => `
+                <label class="flex items-start gap-2.5 bg-slate-50 p-3 rounded-lg border hover:bg-slate-100 cursor-pointer transition">
+                    <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleCheck('${item.id}')" class="mt-0.5 rounded text-okinawa-blue focus:ring-okinawa-blue">
+                    <div>
+                        <span class="font-semibold text-slate-800 ${item.checked ? 'line-through text-slate-400' : ''}">${item.title}</span>
+                        <span class="block text-[10px] text-slate-400 mt-0.5">${item.cat}</span>
+                    </div>
+                </label>
+            `).join('');
+
+            const checkedCount = state.checklist.filter(c => c.checked).length;
+            const pct = Math.round((checkedCount / state.checklist.length) * 100);
+            document.getElementById('check-progress').innerText = `${pct}% 완료`;
+        }
+
+        function toggleCheck(id) {
+            const item = state.checklist.find(c => c.id === id);
+            if (item) {
+                item.checked = !item.checked;
+                localStorage.setItem('okinawa_checklist', JSON.stringify(state.checklist));
+                renderChecklist();
+            }
+        }
+
+        // Budget Calculations & Render
+        function renderBudget() {
+            const tbody = document.getElementById('expense-table-body');
+            let totalJPY = 0;
+
+            tbody.innerHTML = state.expenses.map(item => {
+                totalJPY += Number(item.amount);
+                return `
+                    <tr>
+                        <td class="p-2 font-medium">${item.name}</td>
+                        <td class="p-2"><span class="bg-slate-100 px-2 py-0.5 rounded text-slate-600">${item.category}</span></td>
+                        <td class="p-2 text-right font-semibold">¥ ${Number(item.amount).toLocaleString()}</td>
+                        <td class="p-2 text-center">
+                            <button onclick="deleteExpense(${item.id})" class="text-rose-500 hover:text-rose-700">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            const totalKRWLocal = Math.round(totalJPY * (state.jpyRate / 10));
+            const grandTotalKRW = state.prepaidKRW + totalKRWLocal;
+
+            document.getElementById('prepaid-display').innerText = `₩ ${state.prepaidKRW.toLocaleString()}`;
+            document.getElementById('local-jpy-display').innerText = `¥ ${totalJPY.toLocaleString()}`;
+            document.getElementById('total-budget-display').innerText = `₩ ${grandTotalKRW.toLocaleString()}`;
+        }
+
+        function addExpense() {
+            const name = document.getElementById('exp-name').value.trim();
+            const category = document.getElementById('exp-category').value;
+            const amount = document.getElementById('exp-amount').value;
+
+            if (!name || !amount) return alert('내역과 금액을 모두 입력해주세요.');
+
+            state.expenses.push({
+                id: Date.now(),
+                name,
+                category,
+                amount: Number(amount)
+            });
+
+            localStorage.setItem('okinawa_expenses', JSON.stringify(state.expenses));
+            document.getElementById('exp-name').value = '';
+            document.getElementById('exp-amount').value = '';
+            renderBudget();
+        }
+
+        function deleteExpense(id) {
+            state.expenses = state.expenses.filter(e => e.id !== id);
+            localStorage.setItem('okinawa_expenses', JSON.stringify(state.expenses));
+            renderBudget();
+        }
+
+        // Photo / Receipt Storage Functions
+        function handlePhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                state.photos.unshift({
+                    id: Date.now(),
+                    src: evt.target.result,
+                    date: new Date().toLocaleDateString()
+                });
+                try {
+                    localStorage.setItem('okinawa_photos', JSON.stringify(state.photos));
+                    renderPhotos();
+                } catch (err) {
+                    alert('용량이 초과되었습니다. 기존 사진을 삭제 후 다시 시도해 주세요.');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function renderPhotos() {
+            const gallery = document.getElementById('photo-gallery');
+            if (state.photos.length === 0) {
+                gallery.innerHTML = '<p class="col-span-full text-center text-xs text-slate-400 py-6">등록된 영수증이나 사진이 없습니다.</p>';
+                return;
+            }
+
+            gallery.innerHTML = state.photos.map(p => `
+                <div class="relative group rounded-xl overflow-hidden border shadow-sm bg-black">
+                    <img src="${p.src}" class="w-full h-32 object-cover opacity-90 hover:opacity-100 transition">
+                    <button onclick="deletePhoto(${p.id})" class="absolute top-1 right-1 bg-rose-600 text-white rounded-full w-6 h-6 text-xs flex items-center justify-center shadow">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                    <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded">${p.date}</span>
+                </div>
+            `).join('');
+        }
+
+        function deletePhoto(id) {
+            state.photos = state.photos.filter(p => p.id !== id);
+            localStorage.setItem('okinawa_photos', JSON.stringify(state.photos));
+            renderPhotos();
+        }
+
+        // Initial Load
+        window.onload = function() {
+            renderRestrooms();
+            renderChecklist();
+            renderBudget();
+            renderPhotos();
+        };
+    </script>
+</body>
+</html>
